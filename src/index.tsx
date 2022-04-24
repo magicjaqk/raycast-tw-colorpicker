@@ -1,4 +1,5 @@
 import { ActionPanel, Action, Icon, List, Image } from "@raycast/api";
+import React from "react";
 
 function HexToRGB(hex: string) {
   // Ommit first char which is hash symbol
@@ -300,9 +301,21 @@ const COLORS = () => {
 };
 
 export default function Command() {
+  const [searchText, setSearchText] = React.useState("");
+  const [filteredList, filterList] = React.useState(COLORS());
+
+  React.useEffect(() => {
+    filterList(COLORS().filter((color) => color.title.includes(searchText)));
+  }, [searchText]);
+
   return (
-    <List>
-      {COLORS().map((item, id) => (
+    <List
+      enableFiltering={false}
+      onSearchTextChange={setSearchText}
+      navigationTitle="Search Colors"
+      searchBarPlaceholder="Search for TailwindCSS color names"
+    >
+      {filteredList.map((item, id) => (
         <List.Item
           key={id}
           icon={{
@@ -317,7 +330,11 @@ export default function Command() {
             <ActionPanel>
               <Action.CopyToClipboard title="Copy HEX" content={item.hex.toUpperCase()} />
               <Action.CopyToClipboard title="Copy RGB" content={item.rgb} />
-              <Action.CopyToClipboard title="Copy TailwindCSS Name" content={item.title} />
+              <Action.CopyToClipboard
+                title="Copy TailwindCSS Name"
+                shortcut={{ modifiers: ["shift", "cmd"], key: "enter" }}
+                content={item.title}
+              />
             </ActionPanel>
           }
         />
