@@ -1,4 +1,4 @@
-import { ActionPanel, Action, Icon, List } from "@raycast/api";
+import { ActionPanel, Action, Icon, List, Image } from "@raycast/api";
 
 function HexToRGB(hex: string) {
   // Ommit first char which is hash symbol
@@ -305,7 +305,12 @@ export default function Command() {
       {COLORS().map((item, id) => (
         <List.Item
           key={id}
-          icon={{ source: Icon.Circle, tintColor: item.hex }}
+          icon={{
+            source: "white_square.png",
+            fallback: Icon.Bubble,
+            mask: Image.Mask.RoundedRectangle,
+            tintColor: item.hex,
+          }}
           title={item.title}
           accessories={[{ icon: Icon.Text, text: item.hex.toUpperCase() }]}
           actions={

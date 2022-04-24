@@ -3,7 +3,7 @@
   "name": "tw-colorpicker",
   "title": "ColorPicker",
   "description": "Pick a color to copy the hex value and paste elsewhere.",
-  "icon": "command-icon.png",
+  "icon": "icon.png",
   "author": "magicjaqk",
   "categories": [
     "Developer Tools",
