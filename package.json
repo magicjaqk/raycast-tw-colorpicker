@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "colorpicker",
+  "name": "tw-colorpicker",
   "title": "ColorPicker",
   "description": "Pick a color to copy the hex value and paste elsewhere.",
   "icon": "command-icon.png",
@@ -14,8 +14,8 @@
   "commands": [
     {
       "name": "index",
-      "title": "Find Color",
-      "description": "Show color swatches.",
+      "title": "Show Colors",
+      "description": "Show color list.",
       "mode": "view"
     }
   ],
