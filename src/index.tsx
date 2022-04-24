@@ -11,7 +11,7 @@ function HexToRGB(hex: string) {
 const COLORS = () => {
   // Colors from TailwindCSS @link(https://github.com/tailwindlabs/tailwindcss/blob/master/src/public/colors.js)
   // -- any type below is to mitigate errors arising from iterating over tw_colors keys --
-  const tw_colors: any = {
+  const tw_colors: { [key: string]: any } = {
     slate: {
       50: "#f8fafc",
       100: "#f1f5f9",
